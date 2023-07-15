@@ -1,49 +1,51 @@
-.. These are examples of badges you might want to add to your README:
-   please update the URLs accordingly
-
-    .. image:: https://api.cirrus-ci.com/github/<USER>/imagebanner.svg?branch=main
-        :alt: Built Status
-        :target: https://cirrus-ci.com/github/<USER>/imagebanner
-    .. image:: https://readthedocs.org/projects/imagebanner/badge/?version=latest
-        :alt: ReadTheDocs
-        :target: https://imagebanner.readthedocs.io/en/stable/
-    .. image:: https://img.shields.io/coveralls/github/<USER>/imagebanner/main.svg
-        :alt: Coveralls
-        :target: https://coveralls.io/r/<USER>/imagebanner
-    .. image:: https://img.shields.io/pypi/v/imagebanner.svg
-        :alt: PyPI-Server
-        :target: https://pypi.org/project/imagebanner/
-    .. image:: https://img.shields.io/conda/vn/conda-forge/imagebanner.svg
-        :alt: Conda-Forge
-        :target: https://anaconda.org/conda-forge/imagebanner
-    .. image:: https://pepy.tech/badge/imagebanner/month
-        :alt: Monthly Downloads
-        :target: https://pepy.tech/project/imagebanner
-    .. image:: https://img.shields.io/twitter/url/http/shields.io.svg?style=social&label=Twitter
-        :alt: Twitter
-        :target: https://twitter.com/imagebanner
-
-.. image:: https://img.shields.io/badge/-PyScaffold-005CA0?logo=pyscaffold
-    :alt: Project generated with PyScaffold
-    :target: https://pyscaffold.org/
-
-|
-
-============
 imagebanner
-============
+===========
+
+Description
+-----------
+
+Since Xiaomi launched `Xiaomi 12s
+ultra <https://www.mi.com/global/product/xiaomi-12s-ultra/>`__, it has
+been popular to add watermark to the photo, showing camera model, logo,
+iso and other parameters. Many third party apps, such as
+`Liit <https://apps.apple.com/us/app/liit-photo-editor/id1547215938>`__
+also provide this functionaliy.
+
+This repo is aimed at fuji cameras, with film simulation info on the
+wartermark.
+
+Requirements
+------------
+
+-  Pillow >= 10.0 (built with libraqm)
+-  `exifread <https://pypi.org/project/ExifRead/>`__ >= 3.0.0
+
+.. raw:: html
+
+   <!-- ## Examples
+   ![](output/test4.jpg) -->
+
+TODO
+----
+
+-  ☐ Add support for iPhone, as I don’t have any other camera models.
+-  ☒ Add support for fuji film simulation exif.
+-  ☐ https://github.com/dofine/py-jpg-banner/issues/1 Portrait view.
+-  ☐ Add option to copy original photo’s exif to the new edited output
+   photo.
 
 
-    Add a short description here!
 
+.. image:: https://img.shields.io/pypi/v/imagebanner.svg
+    :target: https://pypi.python.org/pypi/imagebanner
 
-A longer description of your project goes here...
+.. image:: https://img.shields.io/travis/dofine/imagebanner.svg
+    :target: https://travis-ci.com/dofine/imagebanner
 
+.. image:: https://readthedocs.org/projects/imagebanner/badge/?version=latest
+    :target: https://imagebanner.readthedocs.io/en/latest/?version=latest
+    :alt: Documentation Status
 
-.. _pyscaffold-notes:
-
-Note
-====
-
-This project has been set up using PyScaffold 4.5. For details and usage
-information on PyScaffold see https://pyscaffold.org/.
+.. image:: https://pyup.io/repos/github/dofine/imagebanner/shield.svg
+    :target: https://pyup.io/repos/github/dofine/imagebanner/
+    :alt: Updates
