@@ -1,5 +1,5 @@
 """
-    Setup file for image_banner.
+    Setup file for imagebanner.
     Use setup.cfg to configure your project.
 
     This file was generated with PyScaffold 4.5.

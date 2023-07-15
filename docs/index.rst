@@ -1,8 +1,8 @@
 ============
-image_banner
+imagebanner
 ============
 
-This is the documentation of **image_banner**.
+This is the documentation of **imagebanner**.
 
 .. note::
 

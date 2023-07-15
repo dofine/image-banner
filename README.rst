@@ -1,27 +1,27 @@
 .. These are examples of badges you might want to add to your README:
    please update the URLs accordingly
 
-    .. image:: https://api.cirrus-ci.com/github/<USER>/image_banner.svg?branch=main
+    .. image:: https://api.cirrus-ci.com/github/<USER>/imagebanner.svg?branch=main
         :alt: Built Status
-        :target: https://cirrus-ci.com/github/<USER>/image_banner
-    .. image:: https://readthedocs.org/projects/image_banner/badge/?version=latest
+        :target: https://cirrus-ci.com/github/<USER>/imagebanner
+    .. image:: https://readthedocs.org/projects/imagebanner/badge/?version=latest
         :alt: ReadTheDocs
-        :target: https://image_banner.readthedocs.io/en/stable/
-    .. image:: https://img.shields.io/coveralls/github/<USER>/image_banner/main.svg
+        :target: https://imagebanner.readthedocs.io/en/stable/
+    .. image:: https://img.shields.io/coveralls/github/<USER>/imagebanner/main.svg
         :alt: Coveralls
-        :target: https://coveralls.io/r/<USER>/image_banner
-    .. image:: https://img.shields.io/pypi/v/image_banner.svg
+        :target: https://coveralls.io/r/<USER>/imagebanner
+    .. image:: https://img.shields.io/pypi/v/imagebanner.svg
         :alt: PyPI-Server
-        :target: https://pypi.org/project/image_banner/
-    .. image:: https://img.shields.io/conda/vn/conda-forge/image_banner.svg
+        :target: https://pypi.org/project/imagebanner/
+    .. image:: https://img.shields.io/conda/vn/conda-forge/imagebanner.svg
         :alt: Conda-Forge
-        :target: https://anaconda.org/conda-forge/image_banner
-    .. image:: https://pepy.tech/badge/image_banner/month
+        :target: https://anaconda.org/conda-forge/imagebanner
+    .. image:: https://pepy.tech/badge/imagebanner/month
         :alt: Monthly Downloads
-        :target: https://pepy.tech/project/image_banner
+        :target: https://pepy.tech/project/imagebanner
     .. image:: https://img.shields.io/twitter/url/http/shields.io.svg?style=social&label=Twitter
         :alt: Twitter
-        :target: https://twitter.com/image_banner
+        :target: https://twitter.com/imagebanner
 
 .. image:: https://img.shields.io/badge/-PyScaffold-005CA0?logo=pyscaffold
     :alt: Project generated with PyScaffold
@@ -30,7 +30,7 @@
 |
 
 ============
-image_banner
+imagebanner
 ============
 
 

@@ -1,6 +1,6 @@
 import pytest
 
-from image_banner.skeleton import fib, main
+from imagebanner.skeleton import fib, main
 
 __author__ = "Fan Du"
 __copyright__ = "Fan Du"
