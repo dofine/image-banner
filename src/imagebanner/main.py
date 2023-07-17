@@ -85,11 +85,6 @@ def add_border_to_image(
     camera_model = str(exif_data.get("Image Model", ""))
     iso = str(exif_data.get("EXIF ISOSpeedRatings", ""))
     shutter_speed = exif_data["EXIF ExposureTime"].printable
-    # if shutter_speed is not None:
-    #     shutter_speed = float(shutter_speed)
-    #     shutter_speed = (
-    #         str(shutter_speed) if shutter_speed >= 1 else f"1/{int(1/shutter_speed)}"
-    #     )
 
     lens = exif_data.get("EXIF LensModel").printable
     # 获取照片的拍摄日期
@@ -99,7 +94,7 @@ def add_border_to_image(
 
     film_mode = get_fuji_filmmode(image_path)
     focal_length = exif_data.get("EXIF FocalLengthIn35mmFilm")
-    f_number = exif_data.get("EXIF FNumber")
+    f_number = float(exif_data["EXIF FNumber"].values[0])
 
     # 尺寸
     margin_left = int(0.02 * image.width)  # 左右边距
@@ -171,31 +166,27 @@ def add_border_to_image(
             logger.warning("camera make is missing in exif.")
             new_image.save(output_path, "JPEG", quality=95)
             return
-        logo_filepath = Path(f"{script_dir}/../../assets/cameralogos/")
-        logger.debug(f"logo dir: {logo_filepath}")
-        if not Path.exists(logo_filepath):
-            if Path.exists(Path(camera_logo_dir)):
-                camero_logo_jpg = os.path.join(
-                    camera_logo_dir, f"{camera_make.lower()}.jpg"
-                )
-            else:
-                logger.warning(
-                    "add_camera_logo is True, but did'nt find valid logo jpg file."
-                )
-                new_image.save(output_path, "JPEG", quality=95)
-                return
-        else:
+        if Path.exists(Path(camera_logo_dir)):
+            # if the path specified by user exists, use that path.
             camero_logo_jpg = os.path.join(
                 camera_logo_dir, f"{camera_make.lower()}.jpg"
             )
+        else:
+            logger.warning("add_camera_logo is True, but logo dir doesn't exist.")
+            logger.warning("trying to use default dir.")
 
-        logger.info(f"using camera maker logo: {camero_logo_jpg}")
+            camero_logo_jpg = os.path.join(
+                f"{script_dir}/../../assets/cameralogos/", f"{camera_make.lower()}.jpg"
+            )
+            new_image.save(output_path, "JPEG", quality=95)
+            return
+
+        logger.debug(f"logo file path: {camero_logo_jpg}")
+
         draw_camera_logo = Image.open(camero_logo_jpg)
 
         _logo_new_height = capture_date_box[3] + _iso_text_bbox[3]
-        _logo_new_width = int(
-            _logo_new_height * draw_camera_logo.width / draw_camera_logo.height
-        )
+
         draw_camera_logo_resized = _resize_image(
             draw_camera_logo, height=_logo_new_height
         )

@@ -1,3 +1,5 @@
+import os
+
 FILMMODE_DICT = {
     0: "Standard (Provia)",
     288: "Astia",
@@ -14,5 +16,6 @@ FILMMODE_DICT = {
 
 # see https://exiftool.org/TagNames/FujiFilm.html Tag 0x1401
 
-
-FONT_NAME = "Futura.ttc"
+dir_name = os.path.dirname(__file__)
+FONT_NAME = os.path.join(dir_name, "../../assets/SmileySans-Oblique.ttf")
+# FONT_NAME = 'Futura.ttc'
