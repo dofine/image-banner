@@ -19,10 +19,13 @@ Requirements
 -  Pillow >= 10.0 (built with libraqm)
 -  `exifread <https://pypi.org/project/ExifRead/>`__ >= 3.0.0
 
-.. raw:: html
 
-   <!-- ## Examples
-   ![](output/test4.jpg) -->
+Examples
+--------
+
+.. image:: https://github.com/dofine/image-banner/blob/39f4caa9c95d3a9347c8dffc3158f396d327dfc5/tests/test_result.jpg
+  :alt: Test result.
+
 
 TODO
 ----
