@@ -21,7 +21,7 @@ Requirements
 
 
 Examples and Usage
---------
+-------------------
 
 .. image:: https://github.com/dofine/image-banner/blob/39f4caa9c95d3a9347c8dffc3158f396d327dfc5/tests/test_result.jpg?raw=true
   :alt: Test result.
