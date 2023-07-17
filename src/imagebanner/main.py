@@ -19,29 +19,10 @@ script_dir = os.path.dirname(__file__)
 
 
 def _get_exif_from_img_file(image_path):
-    exif_result = {}
-    with Image.open(image_path) as img:
-        exif = img.getexif()
-        for k, v in exif.items():
-            tag = TAGS.get(k, k)
-            exif_result[tag] = v
-
-        for ifd_id in IFD:
-            try:
-                ifd = exif.get_ifd(ifd_id)
-
-                if ifd_id == IFD.GPSInfo:
-                    resolve = GPSTAGS
-                else:
-                    resolve = TAGS
-
-                for k, v in ifd.items():
-                    tag = resolve.get(k, k)
-                    exif_result[tag] = v
-            except KeyError:
-                pass
-
-    return exif_result
+    exif = {}
+    with open(image_path, "rb") as img:
+        exif = exifread.process_file(img)
+    return exif
 
 
 def get_fuji_filmmode(image_path):
@@ -95,32 +76,30 @@ def add_border_to_image(
 
     # 读取 exif 信息
     exif_data = _get_exif_from_img_file(image_path)
-    if exif_data is None:
-        exif_data = {}
 
     # 获取照片的拍摄机型、iso、快门速度、镜头参数和富士胶片模拟名称
-    camera_make = exif_data.get("Make")
-    if camera_make is None:
+    camera_make = str(exif_data.get("Image Make", ""))
+    if camera_make == "":
         image.save(output_path, "JPEG", quality=95)
         return
-    camera_model = exif_data.get("Model")
-    iso = exif_data.get("ISOSpeedRatings")
-    shutter_speed = exif_data.get("ExposureTime")
-    if shutter_speed is not None:
-        shutter_speed = float(shutter_speed)
-        shutter_speed = (
-            str(shutter_speed) if shutter_speed >= 1 else f"1/{int(1/shutter_speed)}"
-        )
+    camera_model = str(exif_data.get("Image Model", ""))
+    iso = str(exif_data.get("EXIF ISOSpeedRatings", ""))
+    shutter_speed = exif_data["EXIF ExposureTime"].printable
+    # if shutter_speed is not None:
+    #     shutter_speed = float(shutter_speed)
+    #     shutter_speed = (
+    #         str(shutter_speed) if shutter_speed >= 1 else f"1/{int(1/shutter_speed)}"
+    #     )
 
-    lens = exif_data.get("LensModel").replace("\x00", "")
+    lens = exif_data.get("EXIF LensModel").printable
     # 获取照片的拍摄日期
     capture_date = datetime.strptime(
-        exif_data.get("DateTimeOriginal"), "%Y:%m:%d %H:%M:%S"
+        exif_data["EXIF DateTimeOriginal"].printable, "%Y:%m:%d %H:%M:%S"
     ).strftime("%Y-%m-%d %H:%M:%S %a")
 
     film_mode = get_fuji_filmmode(image_path)
-    focal_length = exif_data.get("FocalLengthIn35mmFilm")
-    f_number = exif_data.get("FNumber")
+    focal_length = exif_data.get("EXIF FocalLengthIn35mmFilm")
+    f_number = exif_data.get("EXIF FNumber")
 
     # 尺寸
     margin_left = int(0.02 * image.width)  # 左右边距

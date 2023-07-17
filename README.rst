@@ -26,6 +26,9 @@ Examples
 .. image:: https://github.com/dofine/image-banner/blob/39f4caa9c95d3a9347c8dffc3158f396d327dfc5/tests/test_result.jpg
   :alt: Test result.
 
+.. code-block:: bash
+
+    imagebanner  -i tests/test.jpg -o test_result.jpg -l assets/cameralogos
 
 TODO
 ----
