@@ -20,17 +20,20 @@ Requirements
 -  `exifread <https://pypi.org/project/ExifRead/>`__ >= 3.0.0
 
 
-Examples
+Examples and Usage
 --------
 
-.. image:: https://github.com/dofine/image-banner/blob/39f4caa9c95d3a9347c8dffc3158f396d327dfc5/tests/test_result.jpg
+.. image:: https://github.com/dofine/image-banner/blob/39f4caa9c95d3a9347c8dffc3158f396d327dfc5/tests/test_result.jpg?raw=true
   :alt: Test result.
+
+To use the
 
 .. code-block:: bash
 
-    imagebanner  -i tests/test.jpg -o test_result.jpg -l assets/cameralogos
+    imagebanner  -i tests/test.jpg -o test_result.jpg --logo-dir assets/cameralogos
 
-TODO
+
+Todo
 ----
 
 -  ☐ Add support for iPhone, as I don’t have any other camera models.
