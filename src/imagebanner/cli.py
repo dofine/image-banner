@@ -1,7 +1,7 @@
 """Console script for imagebanner."""
 import sys
 import click
-from .imagebanner import add_border_to_image
+from .main import add_border_to_image
 
 
 @click.command()
