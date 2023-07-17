@@ -11,8 +11,7 @@ iso and other parameters. Many third party apps, such as
 `Liit <https://apps.apple.com/us/app/liit-photo-editor/id1547215938>`__
 also provide this functionaliy.
 
-This repo is aimed at fuji cameras, with film simulation info on the
-wartermark.
+This repo is aimed at fuji cameras, with film simulation info on the watermark.
 
 Requirements
 ------------
